@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 @DisplayName("Teste de unidade da classe ProductController")
 @ExtendWith(MockitoExtension.class)
-public class ProductControllerTest {
+class ProductControllerTest {
 
     @InjectMocks
     private ProductController productController;
@@ -29,7 +29,8 @@ public class ProductControllerTest {
     private final Product product2 = new Product(2L, "Product 2", null, null);
 
     @Test
-    public void testGetAllProducts() {
+    @DisplayName("Método getAllProduct deve retornar lista de Produtos quando executado com sucesso")
+    void getAllProductsShouldReturnProductsListWhenSuccessful() {
 
         List<Product> products = List.of(product1, product2);
         when(productService.getAllProducts()).thenReturn(products);
@@ -44,7 +45,8 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testGetProductById() {
+    @DisplayName("Método getProductById deve retornar o Produto quando executado com sucesso")
+    void getProductByIdShouldReturnProductsListWhenSuccessful() {
 
         when(productService.getProductById(1L)).thenReturn(product1);
 

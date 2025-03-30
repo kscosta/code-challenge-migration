@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 
 @DisplayName("Teste de unidade da classe ProductService")
 @ExtendWith(MockitoExtension.class)
-public class ProductServiceTest {
+class ProductServiceTest {
 
     @InjectMocks
     private ProductServiceImpl productService;
@@ -32,7 +32,8 @@ public class ProductServiceTest {
             new ProductDummyJson(List.of(product1, product2), 2, 0, 30);
 
     @Test
-    public void testGetAllProducts() {
+    @DisplayName("Método getProductById deve retornar o Produto quando executado com sucesso")
+    public void getProductByIdShouldReturnProductWhenSuccessful() {
 
         when(productDummyJsonClient.getAllProducts()).thenReturn(productDummyJson);
 
@@ -44,7 +45,8 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void testGetProductById() {
+    @DisplayName("Método getAllProduct deve retornar lista de Produtos quando executado com sucesso")
+    public void getAllProductsShouldReturnProductWhenSuccessful() {
 
         when(productDummyJsonClient.getProductById(anyLong())).thenReturn(product1);
 

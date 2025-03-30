@@ -5,6 +5,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Classe responsável pela implementação de serviço de Produtos
+ *
+ * @version 1.0
+ * @since Java 17
+ */
+
 @Service
 public class ProductServiceImpl implements ProductService {
 

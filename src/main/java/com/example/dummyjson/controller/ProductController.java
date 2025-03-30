@@ -14,6 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Classe responsável por expor os endpoints da aplicação
+ *
+ * @version 1.0
+ * @since Java 17
+ */
+
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
