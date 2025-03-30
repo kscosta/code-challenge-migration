@@ -1,2 +1,47 @@
 server:
   port: 8080
+
+spring:
+  application:
+    name: dummyjson-client
+  profiles:
+    active: production
+  jmx:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      base-path: /health
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: production
+dummyjson:
+  product-url: https://dummyjson.com/products
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: development
+dummyjson:
+  product-url: https://dummyjson.com/products
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+dummyjson:
+  product-url: https://dummyjson.com/products
