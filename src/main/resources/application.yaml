@@ -1,2 +1,9 @@
 server:
   port: 8080
+
+spring:
+  application:
+    name: dummyjson-client
+
+dummyjson:
+  product-url: https://dummyjson.com/products
