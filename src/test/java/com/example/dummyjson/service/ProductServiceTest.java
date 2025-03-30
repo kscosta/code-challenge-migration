@@ -9,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -35,14 +34,13 @@ public class ProductServiceTest {
     @Test
     public void testGetAllProducts() {
 
-        List<Product> products = Arrays.asList(product1, product2);
         when(productDummyJsonClient.getAllProducts()).thenReturn(productDummyJson);
 
         List<Product> result = productService.getAllProducts();
         assertEquals(2, result.size());
         assertEquals("Product 1", result.get(0).title());
         assertEquals("Product 2", result.get(1).title());
-        verify(productDummyJsonClient,times(1)).getAllProducts();
+        verify(productDummyJsonClient, times(1)).getAllProducts();
     }
 
     @Test
@@ -52,6 +50,6 @@ public class ProductServiceTest {
 
         Product result = productService.getProductById(1L);
         assertEquals("Product 1", result.title());
-        verify(productDummyJsonClient,times(1)).getProductById(1L);
+        verify(productDummyJsonClient, times(1)).getProductById(1L);
     }
 }

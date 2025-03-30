@@ -4,6 +4,18 @@ server:
 spring:
   application:
     name: dummyjson-client
+  jmx:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      base-path: /health
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
 
 dummyjson:
   product-url: https://dummyjson.com/products

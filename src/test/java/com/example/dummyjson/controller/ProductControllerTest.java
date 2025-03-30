@@ -29,7 +29,7 @@ public class ProductControllerTest {
     private final Product product2 = new Product(2L, "Product 2", null, null);
 
     @Test
-    public void testGetAllProducts() throws Exception {
+    public void testGetAllProducts() {
 
         List<Product> products = List.of(product1, product2);
         when(productService.getAllProducts()).thenReturn(products);
