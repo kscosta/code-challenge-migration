@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: dummyjson-client
+  profiles:
+    active: production
   jmx:
     enabled: false
 
@@ -17,5 +19,29 @@ management:
           - info
           - metrics
 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: production
+dummyjson:
+  product-url: https://dummyjson.com/products
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: development
+dummyjson:
+  product-url: https://dummyjson.com/products
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
 dummyjson:
   product-url: https://dummyjson.com/products
