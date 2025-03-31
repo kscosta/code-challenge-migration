@@ -1,5 +1,7 @@
 server:
   port: 8080
+  servlet:
+    context-path: /${dummyjson.api-environment}
 
 spring:
   application:
@@ -27,15 +29,28 @@ spring:
       on-profile: production
 dummyjson:
   product-url: https://dummyjson.com/products
-
+  api-environment: api
 ---
 
 spring:
   config:
     activate:
       on-profile: development
+
 dummyjson:
   product-url: https://dummyjson.com/products
+  api-environment: api-dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: homologation
+
+dummyjson:
+  product-url: https://dummyjson.com/products
+  api-environment: api-hmg
 
 ---
 
@@ -43,5 +58,6 @@ spring:
   config:
     activate:
       on-profile: test
+
 dummyjson:
   product-url: https://dummyjson.com/products

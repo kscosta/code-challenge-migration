@@ -47,7 +47,7 @@ class ProductControllerIntegrationTest {
 
         when(productDummyJsonClient.getAllProducts()).thenReturn(productDummyJson);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/products"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/products"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(hasSize(2)))
@@ -61,7 +61,7 @@ class ProductControllerIntegrationTest {
     void urlGetProductByIdShouldReturnProductsListWhenSuccessful() throws Exception {
 
         when(productDummyJsonClient.getProductById(1L)).thenReturn(product1);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/products/1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/products/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1L))
@@ -78,7 +78,7 @@ class ProductControllerIntegrationTest {
                 new FeignException.NotFound(
                         "[404 Not Found] during [GET] to [https://dummyjson.com/products/9999] [ProductDummyJsonClient#getProductById(Long)]: [{\"message\":\"Product with id '9999' not found\"}]",
                         request, null, null));
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/products/9999"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/products/9999"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound())
                 .andExpect(jsonPath("$").value("Product with id '9999' not found"));
     }
