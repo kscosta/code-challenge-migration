@@ -147,8 +147,14 @@ git clone https://github.com/kscosta/code-challenge-migration.git
   mvn spring-boot:run
 ```
 * Desenvolvimento:
+* 
 ```bash
    mvn spring-boot:run -Dspring-boot.run.profiles=development
+```
+* Homologação:
+* 
+```bash
+   mvn spring-boot:run -Dspring-boot.run.profiles=homologation
 ```
 
 ### 4. Executando testes
@@ -162,8 +168,13 @@ Se estiver usando uma IDE como IntelliJ ou Eclipse, você pode rodar a classe pr
 ### 5. Acessando a API
 Após iniciar o projeto, a aplicação estará rodando em http://localhost:8080/
 
+* Para produção: http://localhost:8080/api
+* Para desenvolvimento: http://localhost:8080/api-dev
+* Para homologação: http://localhost:8080/api-hmg
+
+
 ### 6. Endpoints da API
 
 * Busca Todos os Produtos: http://localhost:8080/api/products
 * Busca Porduto por id: http://localhost:8080/api/products/1
-* Saúde da aplicação: http://localhost:8080/health
+* Saúde da aplicação: http://localhost:8080/api/health
