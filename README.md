@@ -106,3 +106,64 @@ mvn clean test
 
 - Entregar o projeto em container será um diferencial.
 - Fica a critério do desenvolvedor inserir ou remover dependencias do projeto para garantir o objetivo do challenge.
+
+
+# ----------- Após migração ----------------
+
+O projeto foi migrado para a Java 17 e spring Boot 3.2.5
+
+## Tecnologias Utilizadas
+
+* Java 17
+* Spring Boot
+* Spring Web
+* Spring Validation
+* Spring Actuator
+* Spring Cloud OpenFeign
+* Maven 3.8.x
+* JUnit 5
+* Mockito
+* PiTest
+
+## Pré-requisitos
+
+Antes de rodar o projeto, você precisa ter o seguinte instalado:
+* JDK 17+
+* Maven 3.8.x (se não for utilizar a funcionalidade de build do IDE)
+
+## Rodando o Projeto localmente
+
+### 1. Clone o repositório
+
+git clone https://github.com/kscosta/code-challenge-migration.git
+
+### 2. Acesse o diretório do projeto
+
+### 3. Compile e execute o projeto
+ 
+* Produção:
+```bash
+  mvn clean install
+  mvn spring-boot:run
+```
+* Desenvolvimento:
+```bash
+   mvn spring-boot:run -Dspring-boot.run.profiles=development
+```
+
+### 4. Executando testes
+
+```bash
+  mvn clean test
+```
+
+Se estiver usando uma IDE como IntelliJ ou Eclipse, você pode rodar a classe principal (normalmente, a classe anotada com @SpringBootApplication) diretamente.
+
+### 5. Acessando a API
+Após iniciar o projeto, a aplicação estará rodando em http://localhost:8080/
+
+### 6. Endpoints da API
+
+* Busca Todos os Produtos: http://localhost:8080/api/products
+* Busca Porduto por id: http://localhost:8080/api/products/1
+* Saúde da aplicação: http://localhost:8080/health
